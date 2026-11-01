@@ -1,0 +1,11 @@
+_ > nanoagent.plugin.v0001.ProductConfig:
+tagline: "Balance work without overloading one batch"
+summary: "Give the planner weighted items and a number of batches. It proposes a complete partition and verifies that no alternative has a smaller greatest load."
+highlights:
+  - "Checks every item is assigned exactly once"
+  - "Recomputes loads instead of trusting reported totals"
+  - "Proves optimality for bounded inputs"
+steps:
+  - "Provide one to ten named items with integer weights"
+  - "Choose between one and four non-empty batches"
+  - "Review the verified optimal partition and its loads"

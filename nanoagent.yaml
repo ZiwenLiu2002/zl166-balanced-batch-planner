@@ -1,0 +1,30 @@
+_ > nanoagent.plugin.v0001.ManifestConfig:
+id: zl166-balanced-batch-planner
+name: Balanced Batch Planner
+version: 0.1.0
+status: ready
+spec: nanoagent.plugin/v0001
+
+runtime > nanoagent.plugin.v0001.RuntimeConfig:
+  type: mcp_stdio
+  command: [uv, run, --frozen, python, -m, plugin]
+
+permissions > nanoagent.plugin.v0001.PermissionsConfig:
+  network > nanoagent.plugin.v0001.NetworkConfig:
+    hosts: []
+  filesystem > nanoagent.plugin.v0001.FilesystemConfig:
+    write: [workspace]
+
+tools > dict[contract.Tool, nanoagent.plugin.v0001.ToolConfig]:
+  evaluate_partition:
+    description: Check and score a proposed partition of weighted items
+  solve_partition:
+    description: Compute the canonical partition whose greatest batch load is minimal
+
+tasks > dict[contract.Task, nanoagent.plugin.v0001.TaskConfig]:
+  balance-batches:
+    description: Split weighted items into non-empty batches while minimizing the greatest load
+    runner: agent
+    tools: [evaluate_partition]
+    reference: solve_partition
+    instructions: Propose exactly batch_count non-empty batches. Put every item id in exactly one batch. Use evaluate_partition to check candidates, and submit the valid candidate with the smallest possible max_load.
