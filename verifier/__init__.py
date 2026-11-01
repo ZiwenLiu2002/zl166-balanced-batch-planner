@@ -1,5 +1,3 @@
-"""Sandbox-safe verifier."""
-
 from contract import Task, Tool
 
 from .checks import input_problem, optimal_key, output_problem, result

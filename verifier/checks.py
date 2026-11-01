@@ -1,5 +1,3 @@
-"""Deterministic checks for balanced partitions."""
-
 from contract import Status
 
 

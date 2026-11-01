@@ -1,5 +1,3 @@
-"""Exact balanced-partition tools."""
-
 from contract import BalanceInput, BalanceOutput, EvaluateInput, Status
 
 

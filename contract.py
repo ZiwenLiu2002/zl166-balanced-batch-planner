@@ -1,5 +1,3 @@
-"""Typed inputs and outputs for the balanced batch planner."""
-
 from dataclasses import dataclass
 from enum import Enum
 from typing import Annotated
